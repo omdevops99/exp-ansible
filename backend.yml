@@ -50,7 +50,7 @@
         state: present
 
     - name: Load schema
-      ansible.builtin.shell: mysql -h mysql.osdevops99.online -uroot -p${{MYSQL_ROOT_PASSWORD}} < /app/schema/backend.sql
+      ansible.builtin.shell: mysql -h 172.31.30.179 -uroot -p${{MYSQL_ROOT_PASSWORD}} < /app/schema/backend.sql
 
     - name: Start and enable the backend service
       ansible.builtin.systemd:
