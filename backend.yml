@@ -27,7 +27,7 @@
         state: directory
     - name:
       ansible.builtin.unarchive:
-      src: https://expense-artifacts.s3.amazonaws.com/backend.zip
+      src: /tmp/backend.zip https://expense-artifacts.s3.amazonaws.com/backend.zip 
       dest: /app
       remote_src: yes
     - name: dependency install
