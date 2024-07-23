@@ -1,0 +1,8 @@
+---
+- name: Expense frontend setup
+  hosts: all
+  become: yes
+  vars:
+   MYSQL_ROOT_PASSWORD: 'ExpenseApp@1'
+  roles:
+    - "{{ role_name }}" 
