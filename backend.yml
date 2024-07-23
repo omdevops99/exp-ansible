@@ -2,6 +2,8 @@
 - name: Expense frontend setup
   hosts: all
   become: yes
+  vars:
+   MYSQL_ROOT_PASSWORD: 'ExpenseApp@1'
   tasks: 
     - name: Disable the Node.js module
       ansible.builtin.shell: dnf module disable nodejs -y
@@ -50,7 +52,7 @@
         state: present
 
     - name: Load schema
-      ansible.builtin.shell: mysql -h 172.31.30.179 -uroot -p${{MYSQL_ROOT_PASSWORD}} < /app/schema/backend.sql
+      ansible.builtin.shell: mysql -h 172.31.30.179 -uroot -p'{{MYSQL_ROOT_PASSWORD}}'' < /app/schema/backend.sql
 
     - name: Start and enable the backend service
       ansible.builtin.systemd:
